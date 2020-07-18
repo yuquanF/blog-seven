@@ -1,3 +1,4 @@
+const settings = require('../../../settings')
 const links = require('./links')
 
 module.exports = {
@@ -87,18 +88,18 @@ module.exports = {
   // links,
   file: true,
   about: true,
-  discuss: 'vssue',
-  // valine: {
-  //   appId: '',
-  //   appKey: '',
-  //   placeholder: '在这里写下你的留言丨支持 MarkDown 语法',
-  //   notify: false,
-  //   verify: true,
-  //   avatar: 'mp',
-  //   pageSize: 8,
-  //   recordIP: true,
-  //   lang: 'zh-cn',
-  // },
+  discuss: 'valine',
+  valine: {
+    appId: settings.valineAppId,
+    appKey: settings.valineAppKey,
+    placeholder: '在这里写下你的留言丨支持 MarkDown 语法',
+    notify: false,
+    verify: true,
+    avatar: 'mp',
+    pageSize: 8,
+    recordIP: true,
+    lang: 'zh-cn',
+  },
   // search: {
   //   type: 'default',
   //   size: 10,
