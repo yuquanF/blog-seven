@@ -64,7 +64,7 @@ module.exports = {
     ],
     two: [
       {
-        title: '--备案号占用--',
+        title: '黔ICP备19010380号-2',
         link: 'http://beian.miit.gov.cn',
         type: 'flag',
         theme: 'filled',

@@ -52,10 +52,10 @@
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <a-icon
-                    :type="item.type"
-                    :theme="item.theme"
-                  />
+                  <img
+                    :src="footer.beian"
+                    alt="备案信息"
+                  >
                   <span>{{ item.title }}</span>
                 </a>
               </div>
@@ -104,6 +104,7 @@ export default {
       authorLink: 'https://github.com/yuquanF/',
       footer: {
         icon: require('@theme/assets/footer.png'),
+        beian: require('@theme/assets/beian.png'),
       },
     }
   },
