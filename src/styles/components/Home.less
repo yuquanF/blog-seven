@@ -85,7 +85,8 @@
 
   .post {
     background: linear-gradient(to top, @primary-color 0%, lighten(@primary-color, 20%) 100%);
-
+    margin-top: -48px;
+    
     .wrapper {
       width: 100%;
       max-width: 1200px;
@@ -131,52 +132,6 @@
             color: #ffffff;
             font-weight: 400;
             font-size: 20px;
-          }
-        }
-      }
-    }
-  }
-}
-
-body.dark {
-  #home {
-    & > .banner {
-      .img-wrapper {
-        img {
-          filter: brightness(50%);
-        }
-      }
-
-      .text-wrapper {
-        .title {
-          color: @dark-text-color;
-        }
-
-        .description-wrapper {
-          color: @dark-text-color-7;
-        }
-      }
-    }
-
-    .post {
-      background: linear-gradient(to top, @dark-text-color-10 0%, @dark-bg-color 100%);
-
-      .wrapper {
-        h2 {
-          color: @dark-text-color;
-        }
-
-        .row {
-          & > div {
-            .banner {
-              .img {
-                filter: brightness(50%);
-              }
-            }
-
-            h3 {
-              color: @dark-text-color;
-            }
           }
         }
       }

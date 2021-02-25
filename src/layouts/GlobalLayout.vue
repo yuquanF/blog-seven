@@ -15,7 +15,6 @@
       </div>
       <Footer />
       <a-back-top class="back-top" />
-      <Dark v-show="dark" />
     </div>
   </a-locale-provider>
 </template>
@@ -36,7 +35,6 @@ import Categories from '@theme/components/Categories'
 import Post from '@theme/components/Post'
 import Password from '@theme/components/Password'
 import Footer from '@theme/components/Footer'
-import Dark from '@theme/components/Dark'
 import Back from '@theme/components/Back'
 import Page404 from '@theme/components/404'
 import enGB from 'ant-design-vue/lib/locale-provider/en_GB'
@@ -44,7 +42,7 @@ import zhCN from 'ant-design-vue/lib/locale-provider/zh_CN'
 
 export default {
   name: 'Yur',
-  components: { Curtain, Header, Home, Posts, Tags, Tag, Search, Timeline, Links, File, About, Categories, Post, Password, Footer, Dark, Back, Page404 },
+  components: { Curtain, Header, Home, Posts, Tags, Tag, Search, Timeline, Links, File, About, Categories, Post, Password, Footer, Back, Page404 },
   data () {
     return {
       curtain: false,

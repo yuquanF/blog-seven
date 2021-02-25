@@ -1,83 +1,42 @@
 <template>
   <header id="header">
     <div class="container">
-      <a-popover
-        v-model="visible"
-        trigger="click"
-        placement="rightBottom"
-      >
+      <a-popover v-model="visible" trigger="click" placement="rightBottom">
         <template slot="content">
           <div id="menu-mobile">
-            <div
-              v-show="$routePage !== 'search'"
-              class="search"
-              @click="handleMore"
-            >
+            <div v-show="$routePage !== 'search'" class="search" @click="handleMore">
               <a-icon type="search" />
             </div>
-            <a-menu
-              v-model="currentPage"
-              mode="inline"
-              class="menu"
-            >
-              <a-sub-menu
-                v-if="$navs.length"
-                key="category"
-              >
+            <a-menu v-model="currentPage" mode="inline" class="menu">
+              <a-sub-menu v-if="$navs.length" key="category">
                 <span slot="title">{{ $l('category') }}</span>
                 <a-menu-item-group>
-                  <a-menu-item
-                    v-for="nav in $navs"
-                    :key="nav.key"
-                    @click="changeVisible"
-                  >
-                    <a
-                      v-if="$route.path === nav.link"
-                      href="javascript:;"
-                    >
+                  <a-menu-item v-for="nav in $navs" :key="nav.key" @click="changeVisible">
+                    <a v-if="$route.path === nav.link" href="javascript:;">
                       {{ nav.text }}
                     </a>
-                    <router-link
-                      v-else
-                      :to="nav.link"
-                    >
+                    <router-link v-else :to="nav.link">
                       {{ nav.text }}
                     </router-link>
                   </a-menu-item>
                 </a-menu-item-group>
               </a-sub-menu>
-              <a-menu-item
-                v-show="timeline"
-                key="timeline"
-                @click="changeVisible"
-              >
+              <a-menu-item v-show="timeline" key="timeline" @click="changeVisible">
                 <router-link to="/timeline.html">
                   {{ $l('timeline') }}
                 </router-link>
               </a-menu-item>
-              <a-menu-item
-                v-show="links"
-                key="links"
-                @click="changeVisible"
-              >
+              <a-menu-item v-show="links" key="links" @click="changeVisible">
                 <router-link to="/links.html">
                   {{ $l('links') }}
                 </router-link>
               </a-menu-item>
-              <a-menu-item
-                v-show="file"
-                key="file"
-                @click="changeVisible"
-              >
+              <a-menu-item v-show="file" key="file" @click="changeVisible">
                 <router-link to="/file.html">
                   {{ $l('file') }}
                 </router-link>
               </a-menu-item>
-              <a-menu-item
-                v-show="about"
-                key="about"
-                @click="changeVisible"
-              >
+              <a-menu-item v-show="about" key="about" @click="changeVisible">
                 <router-link to="/about.html">
                   {{ $l('about') }}
                 </router-link>
@@ -85,28 +44,12 @@
             </a-menu>
           </div>
         </template>
-        <a-icon
-          type="align-right"
-          class="menu-icon"
-        />
+        <a-icon type="align-right" class="menu-icon" />
       </a-popover>
       <a-row>
-        <a-col
-          :xxl="4"
-          :xl="5"
-          :lg="5"
-          :md="5"
-          :sm="24"
-          :xs="24"
-        >
-          <router-link
-            class="logo"
-            to="/"
-          >
-            <img
-              :src="logo"
-              :alt="$l('title')"
-            >
+        <a-col :xxl="4" :xl="5" :lg="5" :md="5" :sm="24" :xs="24">
+          <router-link class="logo" to="/">
+            <img :src="logo" :alt="$l('title')" />
             <svg
               v-if="nameplate"
               :width="nameplate.width"
@@ -142,22 +85,9 @@
             </svg>
           </router-link>
         </a-col>
-        <a-col
-          :xxl="20"
-          :xl="19"
-          :lg="19"
-          :md="19"
-          :sm="0"
-          :xs="0"
-        >
-          <div
-            v-show="$routePage !== 'search'"
-            class="search"
-          >
-            <a-icon
-              class="search-icon"
-              type="search"
-            />
+        <a-col :xxl="20" :xl="19" :lg="19" :md="19" :sm="0" :xs="0">
+          <div v-show="$routePage !== 'search'" class="search">
+            <a-icon class="search-icon" type="search" />
             <a-auto-complete
               class="search-input"
               dropdown-class-name="search-dropdown"
@@ -167,22 +97,13 @@
               :dropdown-match-select-width="false"
               :default-active-first-option="false"
               :open="searchOpen"
-              @focus="searchOpen=true"
-              @blur="searchOpen=false"
+              @focus="searchOpen = true"
+              @blur="searchOpen = false"
               @search="handleSearch"
             >
-              <template
-                slot="dataSource"
-              >
-                <a-select-opt-group
-                  v-for="group in searchSource"
-                  :key="group.key"
-                  class="select-group"
-                >
-                  <span
-                    slot="label"
-                    class="group-title"
-                  >
+              <template slot="dataSource">
+                <a-select-opt-group v-for="group in searchSource" :key="group.key" class="select-group">
+                  <span slot="label" class="group-title">
                     {{ group.title }}
                   </span>
                   <template v-if="group.title === $l('tags')">
@@ -212,23 +133,11 @@
                     </a-select-option>
                   </template>
                 </a-select-opt-group>
-                <a-select-option
-                  v-if="searchSource.length === 0"
-                  key="v-search-empty"
-                  class="search-empty"
-                  disabled
-                >
+                <a-select-option v-if="searchSource.length === 0" key="v-search-empty" class="search-empty" disabled>
                   <a-empty />
                 </a-select-option>
-                <a-select-option
-                  key="v-search-more"
-                  :value="searchKeyword"
-                  class="search-more"
-                >
-                  <div
-                    class="text"
-                    @click="handleMore"
-                  >
+                <a-select-option key="v-search-more" :value="searchKeyword" class="search-more">
+                  <div class="text" @click="handleMore">
                     {{ $l('more') }}
                   </div>
                 </a-select-option>
@@ -236,78 +145,41 @@
             </a-auto-complete>
           </div>
           <div class="navigation">
-            <a-menu
-              v-model="currentPage"
-              mode="horizontal"
-              class="menu"
-            >
-              <a-sub-menu
-                v-if="$navs.length"
-                key="category"
-              >
-                <span
-                  slot="title"
-                >
+            <a-menu v-model="currentPage" mode="horizontal" class="menu">
+              <a-sub-menu v-if="$navs.length" key="category">
+                <span slot="title">
                   {{ $l('category') }}
-                  <a-icon
-                    type="caret-down"
-                    class="category-icon"
-                  />
+                  <a-icon type="caret-down" class="category-icon" />
                 </span>
                 <a-menu-item-group>
-                  <a-menu-item
-                    v-for="nav in $navs"
-                    :key="nav.key"
-                  >
-                    <a
-                      v-if="$route.path === nav.link"
-                      href="javascript:;"
-                    >
+                  <a-menu-item v-for="nav in $navs" :key="nav.key">
+                    <a v-if="$route.path === nav.link" href="javascript:;">
                       {{ nav.text }}
                     </a>
-                    <router-link
-                      v-else
-                      :to="nav.link"
-                    >
+                    <router-link v-else :to="nav.link">
                       {{ nav.text }}
                     </router-link>
                   </a-menu-item>
                 </a-menu-item-group>
               </a-sub-menu>
             </a-menu>
-            <a-menu
-              v-model="currentPage"
-              mode="horizontal"
-              class="menu"
-            >
-              <a-menu-item
-                v-show="timeline"
-                key="timeline"
-              >
+            <a-menu v-model="currentPage" mode="horizontal" class="menu">
+              <a-menu-item v-show="timeline" key="timeline">
                 <router-link to="/timeline.html">
                   {{ $l('timeline') }}
                 </router-link>
               </a-menu-item>
-              <a-menu-item
-                v-show="links"
-                key="links"
-              >
+              <a-menu-item v-show="links" key="links">
                 <router-link to="/links.html">
                   {{ $l('links') }}
                 </router-link>
               </a-menu-item>
-              <a-menu-item
-                v-show="file"
-                key="file"
-              >
+              <a-menu-item v-show="file" key="file">
                 <router-link to="/file.html">
                   {{ $l('file') }}
                 </router-link>
               </a-menu-item>
-              <a-menu-item
-                v-show="about"
-                key="about"
-              >
+              <a-menu-item v-show="about" key="about">
                 <router-link to="/about.html">
                   {{ $l('about') }}
                 </router-link>
@@ -323,7 +195,7 @@
 <script>
 export default {
   name: 'Header',
-  data () {
+  data() {
     return {
       visible: false,
       title: 'VuePress Theme Yur',
@@ -430,15 +302,15 @@ export default {
     }
   },
   watch: {
-    $route (to, from) {
+    $route(to, from) {
       this.currentPage = [this.$routePage]
     },
   },
-  created () {
+  created() {
     this.handleInit()
   },
   methods: {
-    handleInit () {
+    handleInit() {
       const { logo, timeline, links, file, about, search, nameplate } = this.$themeConfig
       if (logo) {
         this.logo = this.$withBase(logo)
@@ -465,10 +337,10 @@ export default {
       }
       this.currentPage = [this.$routePage]
     },
-    changeVisible () {
+    changeVisible() {
       this.visible = false
     },
-    handleMore () {
+    handleMore() {
       this.visible = false
       this.searchOpen = false
       this.$router.push({
@@ -476,7 +348,7 @@ export default {
         query: { keyword: this.searchKeyword },
       })
     },
-    handleSearch (value) {
+    handleSearch(value) {
       this.searchKeyword = ''
       this.searchSource = []
       value = value.trim().toLowerCase()
@@ -486,12 +358,8 @@ export default {
       this.searchKeyword = value
 
       const { pages } = this.$site
-      const matchTitle = item => (
-        item.title && item.title.toLowerCase().indexOf(value) > -1
-      )
-      const matchTag = item => (
-        item.toLowerCase().indexOf(value) > -1
-      )
+      const matchTitle = item => item.title && item.title.toLowerCase().indexOf(value) > -1
+      const matchTag = item => item.toLowerCase().indexOf(value) > -1
       const res = []
       const posts = {
         title: this.$l('posts'),
@@ -553,7 +421,7 @@ export default {
       }
       this.searchSource = res
     },
-    isCurrentPage (path) {
+    isCurrentPage(path) {
       const index = path.indexOf('#')
       if (index === -1) {
         return path === this.$route.path
@@ -565,5 +433,4 @@ export default {
 }
 </script>
 
-<style lang="less" scoped>
-</style>
+<style lang="less" scoped></style>
