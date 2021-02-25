@@ -1,6 +1,6 @@
 <template>
   <div id="home">
-        <div id="top" class="content-block header-wrapper">
+    <div id="top" class="content-block header-wrapper">
       <div class="header-wrapper-inner">
         <section class="center">
           <!-- <div class="slogan">
@@ -43,46 +43,10 @@
 
 <script>
 import TagCloud from '@theme/components/TagCloud'
-import { init } from 'ityped'
 
 export default {
   name: 'Home',
   components: { TagCloud },
-  data() {
-    return {
-      buttons: [
-        { text: 'Read', link: '/posts', type: 'primary' },
-        { text: 'About', link: '/about', type: 'default' },
-      ],
-      description: '',
-      ityped: null,
-    }
-  },
-  mounted() {
-    this.handleITyped()
-  },
-  methods: {
-    handleInit() {
-      const { ityped, banner, buttons } = this.$themeConfig
-      if (banner) {
-        this.banner = this.$withBase(banner)
-      }
-      if (buttons) {
-        this.buttons = buttons
-      }
-      if (ityped) {
-        this.ityped = ityped
-      }
-    },
-    handleITyped() {
-      if (this.ityped) {
-        this.ityped.strings = [this.$l('description')]
-        init('#ityped', this.ityped)
-      } else {
-        this.description = this.$l('description')
-      }
-    },
-  },
 }
 </script>
 
