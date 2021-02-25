@@ -10,10 +10,11 @@
   ],
   "license": "MIT",
   "author": "yuquanf <hannerduffly@gmail.com>",
+  "private": true,
   "main": "./src/index.js",
   "scripts": {
+    "serve": "cross-env NODE_ENV=dev vuepress dev docs",
     "build": "vuepress build docs",
-    "dev": "cross-env NODE_ENV=dev vuepress dev docs",
     "lint": "eslint --ext .js,.vue yur",
     "commit": "git-cz"
   },
