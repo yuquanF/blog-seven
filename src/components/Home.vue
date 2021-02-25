@@ -1,6 +1,6 @@
 <template>
   <div id="home">
-    <div id="top" class="content-block header-wrapper">
+        <div id="top" class="content-block header-wrapper">
       <div class="header-wrapper-inner">
         <section class="center">
           <!-- <div class="slogan">
@@ -107,6 +107,13 @@ export default {
   #top.header-wrapper {
     height: auto;
     min-height: 100vh;
+    padding: 0px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  #top.header-wrapper {
+    height: 50vh;
     padding: 0px;
   }
 }
