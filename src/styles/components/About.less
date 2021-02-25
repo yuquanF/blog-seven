@@ -1,14 +1,11 @@
 #about {
-  margin: auto;
-  padding: 0 24px;
-  width: 100%;
-  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   .author {
-    display: flex;
     flex-direction: column;
     justify-content: center;
-    min-height: calc(~'100vh - 164px');
     text-align: center;
 
     .wrapper {
@@ -44,6 +41,7 @@
   }
 
   .readme {
+    text-align: center;
     .wrapper {
       visibility: hidden;
       color: @primary-color;
