@@ -3,7 +3,7 @@
     <div class="wrapper">
       <a-breadcrumb separator=">">
         <a-breadcrumb-item>
-          <Router-link to="/tags/">
+          <Router-link to="/tags">
             <a-icon type="tags" />
           </Router-link>
         </a-breadcrumb-item>
@@ -26,4 +26,14 @@ export default {
 </script>
 
 <style lang="less" scoped>
+#tag {
+  margin: 0 auto;
+  padding: 24px;
+  width: 100%;
+  max-width: 1200px;
+
+  .wrapper {
+    text-align: center;
+  }
+}
 </style>

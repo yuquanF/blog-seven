@@ -63,12 +63,12 @@ export default {
       } else if (this.$routePage === 'posts' && !this.$routePost) {
         return 'Posts'
       } else if (this.$routePage === 'tags') {
-        if (!this.$routePost) {
+        if (this.$routePost === 'tags') {
           return 'Tags'
         } else if (Object.keys(this.$tags).includes(this.$routePost)) {
           return 'Tag'
         }
-      } else if (['search', 'timeline', 'links', 'file', 'about', 'back'].includes(this.$routePage)) {
+      } else if (['search', 'tags', 'timeline', 'links', 'file', 'about', 'back'].includes(this.$routePage)) {
         return `${this.$routePage.charAt(0).toUpperCase()}${this.$routePage.slice(1)}`
       } else if (Object.keys(this.$categories).includes(this.$routePage)) {
         if (this.$routePost) {

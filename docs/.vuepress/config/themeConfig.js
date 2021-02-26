@@ -1,25 +1,10 @@
 const settings = require('../../../settings')
-const links = require('./links')
 
 module.exports = {
   lang: 'zh-CN', // en zh-CN
-  // logo: '',
-  // banner: '',
-  // author: '',
-  // authorLink: '',
-  // avatar: '',
-  // social: {
-  //   github: '',
-  //   facebook: '',
-  //   twitter: '',
-  //   dribbble: '',
-  //   weibo: '',
-  //   zhihu: '',
-  //   qq: '',
-  // },
   locales: {
-    title: '人间值得',
-    description: '书写生活与你',
+    title: '书写生活',
+    description: '书写生活',
   },
   navs: [
     {
@@ -42,18 +27,6 @@ module.exports = {
   nameplate: {
     title: 'Jyyiii',
   },
-  buttons: [
-    {
-      text: '阅读列表',
-      link: '/posts/',
-      type: 'primary',
-    },
-    {
-      text: '了解作者',
-      link: '/about.html',
-      type: 'default',
-    },
-  ],
   footer: {
     one: [
       {
@@ -77,6 +50,12 @@ module.exports = {
         type: 'qq',
         theme: 'outlined',
       },
+      {
+        title: 'github: yuquanF',
+        link: 'https://www.github.com/yuquanF',
+        type: 'github',
+        theme: 'outlined',
+      },
     ],
   },
   post: {
@@ -84,8 +63,9 @@ module.exports = {
     pageSize: 12,
     pageSizeOptions: ['12', '24', '48', '96'],
   },
+  tags: true,
+  tagSize: 100,
   timeline: true,
-  // links,
   file: true,
   about: true,
   discuss: 'valine',
@@ -100,12 +80,11 @@ module.exports = {
     recordIP: true,
     lang: 'zh-cn',
   },
-  // search: {
-  //   type: 'default',
-  //   size: 10,
-  // },
+  search: {
+    type: 'default',
+    size: 10,
+  },
   // crisp: '',
-  // tagSize: 100,
   // baiDu: {
   //   tongJi: '',
   //   autoPush: true,

@@ -14,4 +14,15 @@ export default {
 </script>
 
 <style lang="less" scoped>
+#tags {
+  margin: 0 auto;
+  padding: 0 24px 24px;
+  width: 100%;
+  max-width: 1200px;
+  text-align: center;
+
+  #tag-cloud {
+    background-color: #ffffff;
+  }
+}
 </style>
