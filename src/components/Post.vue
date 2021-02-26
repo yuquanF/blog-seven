@@ -58,7 +58,8 @@
     <div v-if="getCatalogs.length" class="catalog">
       <a-button type="primary" shape="circle" icon="ordered-list" size="large" @click="catalog.visible = true" />
       <a-drawer
-        placement="right"
+        placement="left"
+        :width="336"
         :title="$page.title"
         :closable="false"
         :visible="catalog.visible"
