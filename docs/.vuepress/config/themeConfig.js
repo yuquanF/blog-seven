@@ -111,10 +111,10 @@ module.exports = {
   //   autoPush: true,
   //   pinYin: true,
   // },
-  // curtain: {
-  //   tip: '页面准备中...',
-  //   textShadow: '#e91e63',
-  // },
+  curtain: {
+    tip: '页面准备中...',
+    textShadow: '#e91e63',
+  },
   dark: true,
   // cdn: '',
 }

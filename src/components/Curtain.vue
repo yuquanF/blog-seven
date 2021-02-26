@@ -1,32 +1,22 @@
 <template>
   <div id="curtain">
-    <p
-      :style="{
-        textShadow: `0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 15px #ffffff, 0 0 20px ${textShadow}, 0 0 35px ${textShadow}, 0 0 40px ${textShadow}, 0 0 50px ${textShadow}, 0 0 75px ${textShadow}`,
-      }"
-    >
-      {{ $l('title') }}
-    </p>
-    <a-spin
-      class="spin"
-      :tip="tip"
-    />
+    <a-spin class="spin" :tip="tip" size="large" />
   </div>
 </template>
 
 <script>
 export default {
-  data () {
+  data() {
     return {
       tip: 'Loading...',
       textShadow: '#e91e63',
     }
   },
-  created () {
+  created() {
     this.initConfig()
   },
   methods: {
-    initConfig () {
+    initConfig() {
       const { curtain } = this.$themeConfig
       if (curtain) {
         const { tip, textShadow } = curtain
@@ -43,4 +33,18 @@ export default {
 </script>
 
 <style lang="less" scoped>
+#curtain {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  z-index: 99990;
+  top: 30%;
+
+  .spin {
+    color: #687293;
+  }
+}
 </style>
