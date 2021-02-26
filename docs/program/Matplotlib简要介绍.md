@@ -5,7 +5,7 @@ meta:
   - name: description
     content: Matplotlib 简要介绍
   - name: keywords
-    content: Matplotlib 简要介绍
+    content: Matplotlib
 
 created: 2021/01/19
 
@@ -15,7 +15,9 @@ tags:
   - Matplotlib
   - Numpy
   - Python
----## 一 matplotlib 概要
+---
+
+## 一 matplotlib 概要
 
 **1. Matplotlib 是什么？**
 
