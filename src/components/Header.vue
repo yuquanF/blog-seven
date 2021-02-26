@@ -433,4 +433,12 @@ export default {
 }
 </script>
 
-<style lang="less" scoped></style>
+<style lang="less" scoped>
+@media screen and (max-width: 767px) {
+  #header .container {
+    display: flex;
+    justify-content: start;
+    padding-left: 30px;
+  }
+}
+</style>

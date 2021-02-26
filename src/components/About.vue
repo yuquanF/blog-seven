@@ -46,4 +46,10 @@ export default {
 }
 </script>
 
-<style lang="less" scoped></style>
+<style lang="less" scoped>
+@media screen and (max-width: 767px) {
+  #about {
+    padding: 0 20px;
+  }
+}
+</style>

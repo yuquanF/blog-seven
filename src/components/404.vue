@@ -38,11 +38,23 @@ export default {
   justify-content: center;
   align-items: center;
   min-height: calc(100vh - 84px);
+  padding-left: 180px;
 }
+
 .row {
   display: flex;
 }
+
 .col {
   min-width: 500px;
+}
+
+@media screen and (max-width: 767px) {
+  .container {
+    padding-left: 0;
+    .row {
+      flex-direction: column;
+    }
+  }
 }
 </style>
