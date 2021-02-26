@@ -10,15 +10,8 @@
       />
     </div>
     <div class="wrapper">
-      <a-tabs
-        v-model="tab"
-        :animated="false"
-        @change="changeTab"
-      >
-        <a-tab-pane
-          v-if="search.type === 'algolia'"
-          key="algolia"
-        >
+      <a-tabs v-model="tab" :animated="false" @change="changeTab">
+        <a-tab-pane v-if="search.type === 'algolia'" key="algolia">
           <span slot="tab">
             <a-icon type="search" />
             {{ $l('algolia') }}
@@ -26,10 +19,7 @@
           <div v-if="algolias.length">
             algolias search is under development
           </div>
-          <a-empty
-            v-else
-            :description="$l('noSearch')"
-          />
+          <a-empty v-else :description="$l('noSearch')" />
         </a-tab-pane>
         <a-tab-pane key="posts">
           <span slot="tab">
@@ -37,25 +27,15 @@
             {{ $l('posts') }}
           </span>
           <div v-if="posts.length">
-            <a-list
-              size="small"
-              :data-source="posts"
-            >
-              <a-list-item
-                slot="renderItem"
-                slot-scope="{title, path}"
-                class="list-item"
-              >
+            <a-list size="small" :data-source="posts">
+              <a-list-item slot="renderItem" slot-scope="{ title, path }" class="list-item">
                 <router-link :to="path">
                   {{ title }}
                 </router-link>
               </a-list-item>
             </a-list>
           </div>
-          <a-empty
-            v-else
-            :description="$l('noSearch')"
-          />
+          <a-empty v-else :description="$l('noSearch')" />
         </a-tab-pane>
         <a-tab-pane key="tags">
           <span slot="tab">
@@ -63,20 +43,13 @@
             {{ $l('tags') }}
           </span>
           <div v-if="tags.length">
-            <Router-link
-              v-for="{title, path} in tags"
-              :key="title"
-              :to="path"
-            >
+            <Router-link v-for="{ title, path } in tags" :key="title" :to="path">
               <a-tag class="tag">
                 {{ title }}
               </a-tag>
             </Router-link>
           </div>
-          <a-empty
-            v-else
-            :description="$l('noSearch')"
-          />
+          <a-empty v-else :description="$l('noSearch')" />
         </a-tab-pane>
       </a-tabs>
     </div>
@@ -86,7 +59,7 @@
 <script>
 export default {
   name: 'Search',
-  data () {
+  data() {
     return {
       keyword: '',
       tab: 'posts',
@@ -98,7 +71,7 @@ export default {
     }
   },
   watch: {
-    $route (to, from) {
+    $route(to, from) {
       const { tab: toTab, keyword: toKeyword } = to.query
       const { tab: fromTab, keyword: fromKeyword } = from.query
       if (toTab !== fromTab || toKeyword !== fromKeyword) {
@@ -112,7 +85,7 @@ export default {
       }
     },
   },
-  created () {
+  created() {
     this.handleInit()
     this.handleQuery()
     if (this.keyword) {
@@ -120,13 +93,13 @@ export default {
     }
   },
   methods: {
-    handleInit () {
+    handleInit() {
       const { search } = this.$themeConfig
       if (search) {
         this.search = Object.assign({}, this.search, search)
       }
     },
-    handleQuery () {
+    handleQuery() {
       const { tab, keyword } = this.$route.query
       if (tab && ['posts', 'tags'].includes(tab)) {
         this.tab = tab
@@ -143,7 +116,7 @@ export default {
         })
       }
     },
-    onSearch (value) {
+    onSearch(value) {
       if (value) {
         value = value.trim().toLowerCase()
         if (value === this.$route.query.keyword) {
@@ -165,17 +138,12 @@ export default {
       }
 
       if (this.tab === 'algolia') {
-
       } else {
         const posts = []
         const tags = []
         const { pages } = this.$site
-        const matchTitle = item => (
-          item.title && item.title.toLowerCase().indexOf(this.keyword) > -1
-        )
-        const matchTag = item => (
-          item.toLowerCase().indexOf(this.keyword) > -1
-        )
+        const matchTitle = item => item.title && item.title.toLowerCase().indexOf(this.keyword) > -1
+        const matchTag = item => item.toLowerCase().indexOf(this.keyword) > -1
 
         for (let i = 0; i < pages.length; i++) {
           const p = pages[i]
@@ -211,7 +179,7 @@ export default {
         this.tags = tags
       }
     },
-    changeTab () {
+    changeTab() {
       this.posts = []
       this.tags = []
       this.$router.push({
@@ -227,4 +195,72 @@ export default {
 </script>
 
 <style lang="less" scoped>
+@import '../styles/variable.less';
+
+#search {
+  margin: 0 auto;
+  padding: 24px;
+  width: 100%;
+  max-width: 1200px;
+
+  .search {
+    margin: 0 auto;
+    width: 50%;
+    border-radius: 22px;
+
+    .ant-input {
+      border-radius: 22px 0 0 22px;
+    }
+
+    .ant-btn {
+      border-radius: 0 22px 22px 0;
+    }
+  }
+
+  .wrapper {
+    .list-item {
+      a {
+        color: inherit;
+
+        &:hover {
+          color: @primary-color;
+        }
+      }
+    }
+
+    .tag {
+      margin: 6px;
+      padding: 0 12px;
+      height: 30px;
+      line-height: 30px;
+      border: none;
+      border-radius: 8px;
+      color: #738192;
+      background-color: #ffffff;
+      box-shadow: 0 3px 3px rgba(0, 0, 0, 0.15);
+      transition: 0.25s;
+
+      &:hover {
+        color: @primary-color;
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.15);
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  #search {
+    .search {
+      width: 80%;
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  #search {
+    .search {
+      width: 100%;
+    }
+  }
+}
 </style>

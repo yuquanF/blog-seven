@@ -8,45 +8,21 @@
       :grid="postGrid"
       :locale="locale"
     >
-      <a-list-item
-        slot="renderItem"
-        key="item.path"
-        slot-scope="item"
-      >
+      <a-list-item slot="renderItem" key="item.path" slot-scope="item">
         <template slot="actions">
           {{ item.frontmatter.created }}
         </template>
-        <router-link
-          slot="extra"
-          :to="item.path"
-        >
-          <div
-            class="banner"
-            :style="{backgroundImage: `url(${item.frontmatter.banner})`}"
-          />
+        <router-link slot="extra" :to="item.path">
+          <div class="banner" :style="{ backgroundImage: `url(${item.frontmatter.banner})` }" />
         </router-link>
         <a-list-item-meta>
-          <router-link
-            slot="title"
-            :to="item.path"
-          >
+          <router-link slot="title" :to="item.path">
             {{ item.title }}
           </router-link>
         </a-list-item-meta>
-        <div
-          v-if="item.frontmatter.tags"
-          class="tag"
-        >
-          <div
-            v-if="$routePage === 'tags'"
-            style="height: 22px"
-          />
-          <router-link
-            v-for="(tag, key) in item.frontmatter.tags.slice(0, 1)"
-            v-else
-            :key="key"
-            :to="`/tags/${ tag }`"
-          >
+        <div v-if="item.frontmatter.tags" class="tag">
+          <div v-if="$routePage === 'tags'" style="height: 22px" />
+          <router-link v-for="(tag, key) in item.frontmatter.tags.slice(0, 1)" v-else :key="key" :to="`/tags/${tag}`">
             <a-tag>{{ tag }}</a-tag>
           </router-link>
         </div>
@@ -64,7 +40,7 @@ const paginationDefault = {
 
 export default {
   name: 'Posts',
-  data () {
+  data() {
     return {
       pagination: {
         onChange: (page, pageSize) => {
@@ -99,7 +75,7 @@ export default {
     }
   },
   computed: {
-    dataSource () {
+    dataSource() {
       if (Object.keys(this.$categories).includes(this.$routePage)) {
         return this.$categories[this.$routePage]
       } else if (Object.keys(this.$tags).includes(this.$routePost)) {
@@ -110,21 +86,30 @@ export default {
     },
   },
   watch: {
-    $route (to, from) {
+    $route(to, from) {
       const { page: toPage, pageSize: toPageSize } = to.query
       const { page: fromPage, pageSize: fromPageSize } = from.query
-      if (toPage && toPageSize && fromPage && fromPageSize && (toPage !== fromPage || toPageSize !== fromPageSize) && (this.pagination.current !== Number(toPage) || this.pagination.pageSize !== Number(toPageSize))) {
+      if (
+        toPage &&
+        toPageSize &&
+        fromPage &&
+        fromPageSize &&
+        (toPage !== fromPage || toPageSize !== fromPageSize) &&
+        (this.pagination.current !== Number(toPage) || this.pagination.pageSize !== Number(toPageSize))
+      ) {
         // Determine if it is a back operation
         this.pagination.current = Number(toPage)
         this.pagination.pageSize = Number(toPageSize)
-        this.$router.push({
-          query: {
-            page: toPage,
-            pageSize: toPageSize,
-          },
-        }).catch(() => {
-          // Make vue-router happy
-        })
+        this.$router
+          .push({
+            query: {
+              page: toPage,
+              pageSize: toPageSize,
+            },
+          })
+          .catch(() => {
+            // Make vue-router happy
+          })
       } else if (!toPage || !toPageSize) {
         this.pagination.current = paginationDefault.current
         this.pagination.pageSize = paginationDefault.pageSize
@@ -137,12 +122,12 @@ export default {
       }
     },
   },
-  created () {
+  created() {
     this.handleInit()
     this.handleQuery()
   },
   methods: {
-    handleInit () {
+    handleInit() {
       this.pagination.showTotal = (total, range) => {
         return `${this.$l('total')} ${total} ${this.$l('posts')}`
       }
@@ -165,7 +150,7 @@ export default {
         paginationDefault.pageSize = Number(this.pagination.pageSizeOptions[0])
       }
     },
-    handleQuery () {
+    handleQuery() {
       if (!this.hasOwn(this.$route.query, 'page') || !this.hasOwn(this.$route.query, 'pageSize')) {
         this.$router.replace({
           query: {
@@ -183,7 +168,7 @@ export default {
         this.pagination.pageSize = Number(pageSize)
       }
     },
-    pageChange (page, pageSize) {
+    pageChange(page, pageSize) {
       this.pagination.current = page
       this.pagination.pageSize = pageSize
       this.$router.push({
@@ -198,4 +183,123 @@ export default {
 </script>
 
 <style lang="less" scoped>
+@import '../styles/variable.less';
+
+#posts {
+  .post-list {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 40px 24px;
+
+    .ant-row {
+      & > div {
+        .ant-list-item {
+          margin-bottom: 20px;
+          padding: 15px;
+          border-radius: 4px;
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05), 0 0 1px rgba(0, 0, 0, 0.1);
+          transition: all 0.6s;
+
+          &:hover {
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+          }
+
+          .ant-list-item-main {
+            .ant-list-item-meta-title {
+              font-size: 18px;
+
+              a {
+                color: #314659;
+                overflow: hidden;
+                text-overflow: ellipsis;
+              }
+            }
+
+            .ant-tag {
+              margin-right: 0;
+              color: @primary-color;
+              border-color: @primary-color-1;
+              background-color: @primary-color-1;
+            }
+
+            .ant-list-item-action {
+              li {
+                margin-left: 4px;
+                padding: 0;
+                cursor: auto;
+              }
+            }
+          }
+
+          .ant-list-item-extra {
+            position: relative;
+            margin-left: 10px;
+            border-radius: 8px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
+            overflow: hidden;
+            cursor: pointer;
+
+            .banner {
+              width: 150px;
+              height: 150px;
+              background-repeat: no-repeat;
+              background-size: cover;
+              background-position: center center;
+              border-radius: 8px;
+            }
+
+            &::before {
+              content: '';
+              position: absolute;
+              width: 100%;
+              height: 100%;
+              top: 0;
+              left: -100%;
+              background: linear-gradient(to right, transparent, #fff, transparent);
+              transition: all 300ms;
+            }
+
+            &:hover {
+              &::before {
+                left: 100%;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .ant-list-pagination {
+      text-align: center;
+    }
+  }
+}
+
+@media screen and (max-width: 480px) {
+  #posts {
+    .post-list {
+      padding-top: 20px;
+
+      .ant-row {
+        & > div {
+          .ant-list-item {
+            .ant-list-item-main {
+              margin-top: 30px;
+              text-align: center;
+            }
+
+            .ant-list-item-extra-wrap {
+              justify-content: center;
+
+              .ant-list-item-extra {
+                margin: auto 10px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
 </style>

@@ -64,9 +64,7 @@ tags:
 
 ## 链接
 
-[GitHub](https://github.com/cnguu/vuepress-theme-yur)
-
-[凉风有信](/)
+[GitHub](https://github.com/yuquanF)
 
 ## 表格
 
