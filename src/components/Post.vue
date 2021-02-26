@@ -93,7 +93,6 @@
         </div>
         <TagCloud :tag-list="$page.frontmatter.tags" />
       </div>
-      <Discuss />
     </div>
     <div
       v-if="getCatalogs.length"
@@ -141,13 +140,12 @@
 
 <script>
 import Markdown from '@theme/components/Markdown'
-import Discuss from '@theme/components/Discuss'
 import TagCloud from '@theme/components/TagCloud'
 import Bubbles from '@theme/components/Bubbles'
 
 export default {
   name: 'Post',
-  components: { Markdown, Discuss, TagCloud, Bubbles },
+  components: { Markdown, TagCloud, Bubbles },
   data () {
     return {
       catalog: {

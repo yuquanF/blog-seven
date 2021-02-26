@@ -59,17 +59,15 @@
       </div>
     </div>
     <Markdown />
-    <Discuss />
   </div>
 </template>
 
 <script>
 import Markdown from '@theme/components/Markdown'
-import Discuss from '@theme/components/Discuss'
 
 export default {
   name: 'Links',
-  components: { Markdown, Discuss },
+  components: { Markdown },
   data () {
     return {
       links: [],

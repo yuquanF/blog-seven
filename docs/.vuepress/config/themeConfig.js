@@ -68,18 +68,6 @@ module.exports = {
   timeline: true,
   file: true,
   about: true,
-  discuss: 'valine',
-  valine: {
-    appId: settings.valineAppId,
-    appKey: settings.valineAppKey,
-    placeholder: '在这里写下你的留言丨支持 MarkDown 语法',
-    notify: false,
-    verify: true,
-    avatar: 'mp',
-    pageSize: 8,
-    recordIP: true,
-    lang: 'zh-cn',
-  },
   search: {
     type: 'default',
     size: 10,

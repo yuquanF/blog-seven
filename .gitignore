@@ -26,5 +26,4 @@ yarn-error.log*
 yarn.lock
 package-lock.json
 .temp
-settings.js
 support_in_future.md

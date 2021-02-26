@@ -9,17 +9,15 @@
     <div class="readme">
       <Markdown v-show="readme" ref="markdown" />
     </div>
-    <Discuss />
   </div>
 </template>
 
 <script>
 import Markdown from '@theme/components/Markdown'
-import Discuss from '@theme/components/Discuss'
 
 export default {
   name: 'About',
-  components: { Markdown, Discuss },
+  components: { Markdown },
   data() {
     return {
       readme: true,
