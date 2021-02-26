@@ -21,6 +21,11 @@
                   </a-menu-item>
                 </a-menu-item-group>
               </a-sub-menu>
+              <a-menu-item v-show="tags" key="tags" @click="changeVisible">
+                <router-link to="/tags.html">
+                  {{ $l('tags') }}
+                </router-link>
+              </a-menu-item>
               <a-menu-item v-show="timeline" key="timeline" @click="changeVisible">
                 <router-link to="/timeline.html">
                   {{ $l('timeline') }}
@@ -164,6 +169,11 @@
               </a-sub-menu>
             </a-menu>
             <a-menu v-model="currentPage" mode="horizontal" class="menu">
+              <a-menu-item v-show="tags" key="tags">
+                <router-link to="/tags.html">
+                  {{ $l('tags') }}
+                </router-link>
+              </a-menu-item>
               <a-menu-item v-show="timeline" key="timeline">
                 <router-link to="/timeline.html">
                   {{ $l('timeline') }}
@@ -287,6 +297,7 @@ export default {
           },
         ],
       },
+      tags: false,
       timeline: false,
       links: false,
       file: false,
@@ -311,7 +322,7 @@ export default {
   },
   methods: {
     handleInit() {
-      const { logo, timeline, links, file, about, search, nameplate } = this.$themeConfig
+      const { logo, tags, timeline, links, file, about, search, nameplate } = this.$themeConfig
       if (logo) {
         this.logo = this.$withBase(logo)
       }
@@ -319,6 +330,9 @@ export default {
         this.nameplate = Object.assign({}, this.nameplate, nameplate)
       } else {
         this.nameplate = null
+      }
+      if (tags) {
+        this.tags = true
       }
       if (timeline) {
         this.timeline = true
