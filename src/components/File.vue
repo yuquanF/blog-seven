@@ -112,15 +112,10 @@ export default {
 </script>
 
 <style lang="less" scoped>
-@media screen and (max-width: 767px) {
-  #file {
-    padding-top: 500px;
-  }
-}
-
 #file {
   width: 100%;
   max-width: 1200px;
+  min-height: 100vh;
   margin: auto;
   padding: 0 24px 40px 24px;
 
@@ -128,7 +123,7 @@ export default {
     .box {
       position: absolute;
       left: 50%;
-      top: 50%;
+      top: 40%;
       transform: translate(-50%, -50%);
       min-width: 320px;
       padding: 10px;

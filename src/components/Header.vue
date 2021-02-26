@@ -450,14 +450,6 @@ export default {
 <style lang="less" scoped>
 @import '../styles/variable.less';
 
-@media screen and (max-width: 767px) {
-  #header .container {
-    display: flex;
-    justify-content: start;
-    padding-left: 30px;
-  }
-}
-
 #header {
   line-height: 64px;
   background-color: #ffffff;
@@ -619,7 +611,7 @@ export default {
   }
 }
 
-@media only screen and (max-width: 1200px) {
+@media only screen and (max-width: 1400px) {
   #header {
     .container {
       .search {
@@ -629,7 +621,7 @@ export default {
   }
 }
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 1200px) {
   #header {
     .container {
       .search {
@@ -642,7 +634,9 @@ export default {
 @media only screen and (max-width: 767px) {
   #header {
     .container {
-      text-align: center;
+      display: flex;
+      justify-content: start;
+      padding-left: 30px;
 
       .menu-icon {
         display: block;

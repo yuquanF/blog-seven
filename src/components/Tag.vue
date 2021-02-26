@@ -36,4 +36,10 @@ export default {
     text-align: center;
   }
 }
+
+@media screen and (max-width: 480px) {
+  #tag {
+    padding: 24px 0px;
+  }
+}
 </style>

@@ -34,7 +34,6 @@ module.exports = (opts, ctx) => {
       md.use(require('markdown-it-sup'))
       md.use(require('markdown-it-imsize'))
       md.use(require('./plugins/MarkdownIt/katex'))
-      md.use(require('./plugins/MarkdownIt/mermaid'))
     },
     alias () {
       return {

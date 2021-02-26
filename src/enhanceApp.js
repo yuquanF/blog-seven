@@ -1,4 +1,3 @@
-import Mermaid from '@theme/components/Mermaid'
 import Blog from '@theme/plugins/Blog'
 import baiDu from '@theme/plugins/PartyC/baiDu'
 import customer from '@theme/plugins/PartyC/customer'
@@ -29,7 +28,6 @@ export default ({ Vue, options, router, siteData }) => {
   customer(router, siteData)
   baiDu(router, siteData)
   Vue.use(Ant)
-  Vue.component('mermaid', Mermaid)
   Vue.use(Alert)
   Vue.use(Button)
   Vue.use(Input)

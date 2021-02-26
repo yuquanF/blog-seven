@@ -8,7 +8,7 @@
       :grid="postGrid"
       :locale="locale"
     >
-      <a-list-item slot="renderItem" key="item.path" slot-scope="item">
+      <a-list-item class="post-item" slot="renderItem" key="item.path" slot-scope="item">
         <template slot="actions">
           {{ item.frontmatter.created }}
         </template>
@@ -68,7 +68,7 @@ export default {
         xs: 1,
         sm: 1,
         md: 1,
-        lg: 2,
+        lg: 1,
         xl: 2,
         xxl: 2,
       },
@@ -185,121 +185,97 @@ export default {
 <style lang="less" scoped>
 @import '../styles/variable.less';
 
-#posts {
-  .post-list {
-    width: 100%;
-    max-width: 1200px;
-    margin: auto;
-    padding: 40px 24px;
+.post-list {
+  width: 100%;
+  max-width: 1200px;
+  margin: auto;
+  padding: 40px 24px;
+}
 
-    .ant-row {
-      & > div {
-        .ant-list-item {
-          margin-bottom: 20px;
-          padding: 15px;
-          border-radius: 4px;
-          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05), 0 0 1px rgba(0, 0, 0, 0.1);
-          transition: all 0.6s;
+.post-item {
+  margin: 0 40px 20px 0;
+  padding: 15px;
+  border-radius: 14px;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.6s;
 
-          &:hover {
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-          }
+  &:hover {
+    box-shadow: 0 10px 14px rgba(0, 0, 0, 0.15);
+  }
+}
 
-          .ant-list-item-main {
-            .ant-list-item-meta-title {
-              font-size: 18px;
+.ant-list-item-main {
+  .ant-list-item-meta-title {
+    font-size: 18px;
 
-              a {
-                color: #314659;
-                overflow: hidden;
-                text-overflow: ellipsis;
-              }
-            }
-
-            .ant-tag {
-              margin-right: 0;
-              color: @primary-color;
-              border-color: @primary-color-1;
-              background-color: @primary-color-1;
-            }
-
-            .ant-list-item-action {
-              li {
-                margin-left: 4px;
-                padding: 0;
-                cursor: auto;
-              }
-            }
-          }
-
-          .ant-list-item-extra {
-            position: relative;
-            margin-left: 10px;
-            border-radius: 8px;
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
-            overflow: hidden;
-            cursor: pointer;
-
-            .banner {
-              width: 150px;
-              height: 150px;
-              background-repeat: no-repeat;
-              background-size: cover;
-              background-position: center center;
-              border-radius: 8px;
-            }
-
-            &::before {
-              content: '';
-              position: absolute;
-              width: 100%;
-              height: 100%;
-              top: 0;
-              left: -100%;
-              background: linear-gradient(to right, transparent, #fff, transparent);
-              transition: all 300ms;
-            }
-
-            &:hover {
-              &::before {
-                left: 100%;
-              }
-            }
-          }
-        }
-      }
+    a {
+      color: #314659;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
+  }
 
-    .ant-list-pagination {
-      text-align: center;
+  .ant-tag {
+    margin-right: 0;
+    color: @primary-color;
+    border-color: @primary-color-1;
+    background-color: @primary-color-1;
+  }
+
+  .ant-list-item-action {
+    li {
+      margin-left: 4px;
+      padding: 0;
+      cursor: auto;
+    }
+  }
+}
+
+.ant-list-item-extra {
+  .banner {
+    border-radius: 8px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+    cursor: pointer;
+    width: 150px;
+    height: 150px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    border-radius: 8px;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: -100%;
+    background: linear-gradient(to right, transparent, #fff, transparent);
+    transition: all 300ms;
+  }
+
+  &:hover {
+    &::before {
+      left: 100%;
     }
   }
 }
 
 @media screen and (max-width: 480px) {
-  #posts {
-    .post-list {
-      padding-top: 20px;
+  .post-list {
+    padding: 10px;
+  }
+}
 
-      .ant-row {
-        & > div {
-          .ant-list-item {
-            .ant-list-item-main {
-              margin-top: 30px;
-              text-align: center;
-            }
+@media screen and (min-width: 1200px) {
+  .post-list {
+    padding-left: 180px;
+  }
 
-            .ant-list-item-extra-wrap {
-              justify-content: center;
-
-              .ant-list-item-extra {
-                margin: auto 10px;
-              }
-            }
-          }
-        }
-      }
-    }
+  .ant-col-xl-12 {
+    width: 45%;
   }
 }
 </style>
