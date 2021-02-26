@@ -1,47 +1,39 @@
 ---
-
 title: Matplotlib 简要介绍
 
 meta:
-
-- name: description
-  content: Matplotlib 简要介绍
-- name: keywords
-  content: Matplotlib 简要介绍
+  - name: description
+    content: Matplotlib 简要介绍
+  - name: keywords
+    content: Matplotlib 简要介绍
 
 created: 2021/01/19
 
 updated: 2021/01/19
 
 tags:
-
-- Matplotlib
-- Numpy
-- Python
-
----
-
-# Matplotlib 简要介绍
-
-## 一 matplotlib 概要
+  - Matplotlib
+  - Numpy
+  - Python
+---## 一 matplotlib 概要
 
 **1. Matplotlib 是什么？**
 
-   &emsp;&emsp; Matplotlib 是一个 Python 的 2D 绘图库，它以各种硬拷贝格式和跨平台的交互式环境生成出版质量级别的图形。
+&emsp; Matplotlib 是一个 Python 的 2D 绘图库，它以各种硬拷贝格式和跨平台的交互式环境生成出版质量级别的图形。
 
 **2. Matplotlib 能帮你？**
 
-   &emsp;&emsp; 绘制线图、散点图、等高线图、条形图、柱状图、3D 图形，甚至是图形动画等等。
+&emsp; 绘制线图、散点图、等高线图、条形图、柱状图、3D 图形，甚至是图形动画等等。
 
 **3. 一些基本概念**
 
-   &emsp;&emsp; 1. axis 轴: 指的是 x 或者 y 这种坐标轴
+&emsp; 1. axis 轴: 指的是 x 或者 y 这种坐标轴
 
-   &emsp;&emsp; 2. 画布层(Figure): plt.figure()
+&emsp; 2. 画布层(Figure): plt.figure()
 
-   &emsp;&emsp; 3. 绘图区: plt.plot()
+&emsp; 3. 绘图区: plt.plot()
 
-   &emsp;&emsp; 4. 坐标区: plt.xticks()
+&emsp; 4. 坐标区: plt.xticks()
 
 **4. 简单使用**
 
@@ -65,7 +57,7 @@ plt.show() # 显示图像
 
 ## 二 常见 api
 
-### plt.figure()
+### ✨plt.figure()
 
 **创建画布**
 
@@ -97,7 +89,7 @@ plt.figure(
 >   Optionally use a custom `.Figure` instance.
 > - clear:可选参数，默认是 false,如果提供参数为 ture，并且该窗口存在的话 则该窗口内容会被清除。
 
-### plt.savefig()
+### ✨plt.savefig()
 
 **保存图片**
 
@@ -112,7 +104,7 @@ plt.figure(
 >   - 可以仅仅指定文件名，保存在当前目录下。如 ‘xxx.png’
 >   - 可以指定包含路径的文件名，‘./images/xxx.png’
 
-### plt.xticks() \ plt.yticks()
+### ✨plt.xticks() \ plt.yticks()
 
 **调整 X 或者 Y 轴上的刻度**
 
@@ -135,7 +127,7 @@ xticks(np.arange(3), ['Tom', 'Dick', 'Sue'])  # Set text labels.
 xticks([0, 1, 2], ['January', 'February', 'March'], rotation=20)  # Set text labels and rotation.
 ```
 
-### plt.xlabel() \ plt.ylabel() \ plt.title()
+### ✨plt.xlabel() \ plt.ylabel() \ plt.title()
 
 **给图像添加描述信息**
 
@@ -154,9 +146,10 @@ plt.title(label, fontdict=None, loc=None, pad=None, **kwargs)
 ```
 
 > Set a title for the axes.
+>
 > - `label : str`。The label text.
 
-### plt.plot()
+### ✨plt.plot()
 
 **将 y 与 x 绘制成直线和/或标记。**
 
@@ -176,7 +169,7 @@ plt.plot(*args, scalex=True, scaley=True, data=None, **kwargs)
 
 注：设置 label 后，需要在 plt.show()之前调用 `plt.legend()`。
 
-### plt.legend()
+### ✨plt.legend()
 
 **设置图例**
 
@@ -186,21 +179,28 @@ plt.legend(*args, **kwargs)
 
 > - loc: string，设置图例位置。
 >
->   - | 0: ‘best'1: ‘upper right'2: ‘upper left'3: ‘lower left' | 4: ‘lower right'5: ‘right'6: ‘center left' | 7: ‘center right'8: ‘lower center'9: ‘upper center'10: ‘center' |
->     | ------------------------------------------------------- | ------------------------------------------ | --------------------------------------------------------------- |
->     |                                                         |                                            |                                                                 |
->
+>   - 0: ‘best'
+>   - 1: ‘upper right'
+>   - 2: ‘upper left'
+>   - 3: ‘lower left'
+>   - 4: ‘lower right'
+>   - 5: ‘right'
+>   - 6: ‘center left'
+>   - 7: ‘center right'
+>   - 8: ‘lower center'
+>   - 9: ‘upper center'
+>   - 10: ‘center'
 > - fontsize : int or float or {‘xx-small’, ‘x-small’, ‘small’, ‘medium’, ‘large’, ‘x-large’, ‘xx-large’}。 设置图例字体大小。
 
-### plt.subplots()
+### ✨plt.subplots()
 
 **用于在一个 Figure 对象里画多个子图(Axes)。**
 
-&emsp;&emsp; 其调用格式：subplot(numRows, numCols, plotNum)，即（行、列、序号）。
+&emsp; 其调用格式：subplot(numRows, numCols, plotNum)，即（行、列、序号）。
 
-&emsp;&emsp; 图表的整个绘图区域被分成 numRows 行和 numCols 列，plotNum 参数指定创建的 Axes 对象所在的区域（左上角序号为 1）
+&emsp; 图表的整个绘图区域被分成 numRows 行和 numCols 列，plotNum 参数指定创建的 Axes 对象所在的区域（左上角序号为 1）
 
-&emsp;&emsp; 如果行数、列数和序号都是个位数可以简写成一个整数，否则需要用逗号隔开。
+&emsp; 如果行数、列数和序号都是个位数可以简写成一个整数，否则需要用逗号隔开。
 
 ```python
 import numpy as np
@@ -232,7 +232,7 @@ fig, ax = plt.subplots()
 - **figure 是作图的画布** : [matplotlib.figure.Figure](https://matplotlib.org/api/_as_gen/matplotlib.figure.Figure.html#matplotlib.figure.Figure)
 - **你可以在 figure 上面铺展 axes, 事实上, 你画的图其实都是画在 axes 上的** : [matplotlib.pyplot.axes](https://matplotlib.org/api/_as_gen/matplotlib.pyplot.axes.html)
 
-### plt.bar()
+### ✨plt.bar()
 
 **绘制柱形图**
 
@@ -257,9 +257,9 @@ ax.bar(
 > - label：解释每个图像代表的含义，这个参数是为 legend()函数做铺垫的。
 > - alpha：透明度，值越小越透明。
 
-## 例子
+## 三 例子
 
-### 绘制折线图
+### ✨绘制折线图
 
 ```python
 import matplotlib.pyplot as plt
@@ -323,7 +323,7 @@ plt.show()
 
 ![image-5](https://blog-1256893237.cos.ap-beijing.myqcloud.com/9c2fef87-4089-4bb7-9d62-29fb5b77a2e2.png)
 
-### 绘制散点图
+### ✨绘制散点图
 
 ```python
 import matplotlib.pyplot as plt
@@ -383,7 +383,7 @@ plt.show()
 
 ![image-8](https://blog-1256893237.cos.ap-beijing.myqcloud.com/c0fdb55a-7b7e-4674-a055-d56ca0989216.png)
 
-### 堆叠式条形图（Stacked bar chart）
+### ✨堆叠式条形图（Stacked bar chart）
 
 > 这是一个使用 bar 创建带有错误条的堆叠条形图的示例。请注意 yerr 用于误差杆的参数，并且 bottom 表示将女子杆堆叠在男子杆的顶部。
 

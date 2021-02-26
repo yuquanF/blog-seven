@@ -6,9 +6,10 @@
   h1 {
     position: relative;
     margin: 20px 0;
-    color: #8492a6;
+    color: #303133;
     text-align: center;
     transition: .25s;
+    font-weight: 800;
 
     a {
       display: none;
@@ -25,8 +26,9 @@
     margin: 20px 0 32px 0;
     width: fit-content;
     max-width: 100%;
-    color: #8492a6;
+    color: #303133;
     transition: .25s;
+    font-weight: 700;
 
     a {
       display: none;
@@ -113,16 +115,16 @@
     margin-left: 2px;
     margin-right: 2px;
     padding: 2px 4px;
-    color: @primary-color;
-    background-color: @primary-color-1;
-    border: 1px solid @primary-color-3;
+    color: #f5222d;
+    background-color: #f0fcff;
+    border: 1px solid #409eff;
     border-radius: 4px;
     white-space: normal;
   }
 
   div[class*="language-"] {
     position: relative;
-    background-color: #282c34;
+    background-color: #292D3E;
     border-radius: 4px;
 
     .highlight-lines {
@@ -206,7 +208,7 @@
         width: 36px;
         height: 100%;
         border-right: 1px solid rgba(0, 0, 0, .66);
-        background-color: #282c34;
+        background-color: #292D3E;
         border-radius: 4px 0 0 4px;
       }
     }
@@ -254,29 +256,40 @@
     border-radius: 4px;
 
     thead {
+      border: 1px solid #e8e8e8;
+
       tr {
         th {
           padding: 16px;
-          background-color: #fafafa;
+          background-color: #e4e7ed;
           color: rgba(0, 0, 0, .85);
           font-weight: 500;
           border-bottom: 1px solid #e8e8e8;
+          border-right: 1px solid #c0c4cc;
         }
       }
     }
 
     tbody {
+      border: 1px solid #e8e8e8;
+
       tr {
         transition: all 0.3s, height 0s;
+        background-color: #e4e7ed;
 
         td {
           padding: 16px;
           border-bottom: 1px solid #e8e8e8;
+          border-right: 1px solid #c0c4cc;
         }
 
         &:hover {
           background-color: @primary-color-1;
         }
+      }
+
+      tr:nth-child(2n+1) {
+        background-color: #fff;
       }
     }
   }
@@ -475,7 +488,7 @@
   }
 
   .token.punctuation {
-    color: #ccc;
+    color: #6e94b7;
   }
 
   .token.tag,
@@ -1597,102 +1610,6 @@
   /**
    * End
    */
-}
-
-body.dark {
-  #markdown {
-    color: @dark-text-color;
-
-    h2, h3, h4, h5, h6 {
-      &::before {
-        background: linear-gradient(lighten(@primary-color, 10%) 30%, @primary-color 70%);
-        box-shadow: 0 3px 3px @dark-bg-color;
-      }
-    }
-
-    blockquote {
-      background-color: @dark-text-color-10;
-      border-left-color: @dark-text-color-9;
-    }
-
-    code {
-      color: @dark-text-color;
-      background-color: @dark-text-color-10;
-      border-color: @dark-text-color-9;
-    }
-
-    div[class*="language-"] {
-      background-color: @dark-text-color-10;
-
-      .highlight-lines {
-        .highlighted {
-          background-color: @dark-text-color-9;
-        }
-      }
-
-      pre,
-      pre[class*="language-"] {
-        code {
-          color: @dark-text-color;
-        }
-      }
-
-      &.line-numbers-mode {
-        &::after {
-          background-color: @dark-text-color-10;
-          border-right-color: @dark-text-color-9;
-        }
-      }
-    }
-
-    hr {
-      background-color: @dark-text-color-10;
-    }
-
-    table {
-      thead {
-        tr {
-          th {
-            color: @dark-text-color;
-            background-color: @dark-text-color-10;
-            border-bottom-color: @dark-text-color-8;
-          }
-        }
-      }
-
-      tbody {
-        tr {
-          td {
-            border-bottom-color: @dark-text-color-9;
-          }
-
-          &:hover {
-            background-color: @dark-text-color-10;
-          }
-        }
-      }
-    }
-
-    .custom-block {
-      color: @dark-text-color-5;
-
-      a {
-        color: @dark-text-color-5;
-        text-shadow: 0 1px 2px @dark-text-color;
-
-        svg {
-          &.icon.outbound {
-            color: @dark-text-color-5;
-          }
-        }
-      }
-
-      &::before {
-        box-shadow: 0 0 0 2.5px @dark-bg-color;
-        color: @dark-bg-color;
-      }
-    }
-  }
 }
 
 @media (max-width: 767px) {
