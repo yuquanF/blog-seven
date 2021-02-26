@@ -631,6 +631,22 @@ export default {
   }
 }
 
+@media only screen and (max-width: 800px) {
+  #header {
+    .container {
+      justify-content: center;
+
+      .search {
+        margin-right: 0px;
+      }
+
+      .ant-col-md-5 {
+        width: 12%;
+      }
+    }
+  }
+}
+
 @media only screen and (max-width: 767px) {
   #header {
     .container {
@@ -640,6 +656,10 @@ export default {
 
       .menu-icon {
         display: block;
+      }
+
+      .ant-col-md-5 {
+        width: 100%;
       }
     }
   }
