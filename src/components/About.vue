@@ -52,4 +52,31 @@ export default {
     padding: 0 20px;
   }
 }
+
+#about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .author {
+    .wrapper {
+      padding: 40px 0;
+
+      img {
+        width: 100%;
+        max-width: 100px;
+        max-height: 100px;
+        border-radius: 100%;
+      }
+
+      h1 {
+        color: #003a8c;
+      }
+    }
+  }
+
+  .readme {
+    text-align: center;
+  }
+}
 </style>

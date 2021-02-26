@@ -1,8 +1,5 @@
 <template>
-  <canvas
-    id="bubbles"
-    ref="canvas"
-  />
+  <canvas id="bubbles" ref="canvas" />
 </template>
 <script>
 // https://github.com/chenxuan0000/vue-canvas-effect
@@ -20,7 +17,7 @@ export default {
       },
     },
   },
-  data () {
+  data() {
     return {
       opt: {
         color: 'random', // rgba(225, 225, 225, 0.5)
@@ -31,10 +28,10 @@ export default {
       requestAniId: null,
     }
   },
-  created () {
+  created() {
     this.handleInit()
   },
-  mounted () {
+  mounted() {
     let width
     let height
     let canvas
@@ -44,7 +41,7 @@ export default {
     const that = this
     initContainer()
 
-    function initContainer () {
+    function initContainer() {
       canvas = that.$refs.canvas
       width = canvas.parentNode.clientWidth
       height = canvas.parentNode.clientHeight
@@ -57,7 +54,7 @@ export default {
       animate()
     }
 
-    function animate () {
+    function animate() {
       cancelAnimationFrame(self.requestAniId)
       ctx.clearRect(0, 0, width, height)
       for (const i in circles) {
@@ -66,12 +63,12 @@ export default {
       self.requestAniId = requestAnimationFrame(animate)
     }
 
-    function Circle () {
+    function Circle() {
       const self = this
       this.pos = {}
       init()
 
-      function init () {
+      function init() {
         self.pos.x = Math.random() * width
         self.pos.y = height + Math.random() * 100
         self.alpha = 0.1 + Math.random() * settings.clearOffset
@@ -80,7 +77,7 @@ export default {
         self.color = settings.color === 'random' ? that.randomColor() : settings.color
       }
 
-      this.draw = function () {
+      this.draw = function() {
         if (self.alpha <= 0) {
           init()
         }
@@ -101,18 +98,18 @@ export default {
       canvas.height = height
     })
   },
-  beforeDestroy () {
+  beforeDestroy() {
     cancelAnimationFrame(this.requestAniId)
   },
   methods: {
-    randomColor () {
+    randomColor() {
       const r = Math.floor(Math.random() * 255)
       const g = Math.floor(Math.random() * 255)
       const b = Math.floor(Math.random() * 255)
       const alpha = Math.random().toPrecision(2)
       return `rgba(${r}, ${g}, ${b}, ${alpha})`
     },
-    handleInit () {
+    handleInit() {
       this.opt = Object.assign({}, this.opt, this.options)
     },
   },
@@ -120,4 +117,12 @@ export default {
 </script>
 
 <style lang="less" scoped>
+#bubbles {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+}
 </style>
