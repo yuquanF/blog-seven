@@ -1,5 +1,3 @@
-const settings = require('../../../settings')
-
 module.exports = {
   lang: 'zh-CN', // en zh-CN
   locales: {

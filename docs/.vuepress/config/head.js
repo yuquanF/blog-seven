@@ -1,7 +1,7 @@
 module.exports = [
   ['meta', {
     name: 'keywords',
-    content: 'vuepress,theme,yur,cnguu',
+    content: 'vuepress,yur,jyyiii,yuquanfeng,blog',
   }],
   ['meta', {
     name: 'apple-mobile-web-app-capable',
@@ -13,6 +13,6 @@ module.exports = [
   }],
   ['link', {
     rel: 'icon',
-    href: '/20171231/favicon.ico',
+    href: '/favicon.ico',
   }],
 ]
