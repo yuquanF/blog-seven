@@ -7,6 +7,7 @@ module.exports = (opts, ctx) => {
   const { sep } = path
   const { themeConfig, sourceDir } = ctx
   const { baiDu, cdn } = themeConfig
+  
   return {
     name: 'vuepress-theme-yur',
     enhanceAppFiles: [
