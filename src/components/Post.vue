@@ -14,12 +14,11 @@
           <p>{{ $page.title }}</p>
         </div>
         <div class="fringe">
-          <a-tooltip v-if="$lang === 'zh-CN'" placement="top" class="word-count">
-            <template slot="title">
-              <span>{{ $l('wordCount') }}{{ $page.wordCount }}</span>
-            </template>
+          <a-tooltip v-if="$lang === 'zh-CN'" placement="top">
             <a-icon type="clock-circle" />
-            {{ getReadingTime }}
+            {{ getReadingTime }} | <span>{{ $l('wordCount') }}{{ $page.wordCount }}</span>
+            <br />
+            <span> {{ $l('updated') }} {{ $page.frontmatter.updated }} </span>
           </a-tooltip>
         </div>
       </div>
@@ -243,10 +242,6 @@ export default {
         line-height: 20px;
         color: #bdbdbd;
         font-size: 13px;
-
-        .word-count {
-          cursor: pointer;
-        }
       }
     }
   }

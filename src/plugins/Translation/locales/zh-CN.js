@@ -36,7 +36,7 @@ module.exports = {
   wordCountUnit: ' 分钟',
   copyright: '版权说明',
   copyrightStatement: '允许转载，需保留原文链接，著作权归本人所有',
-  created: '发布于: ',
+  created: '发布时间: ',
   updated: '最后更新: ',
   noTags: '暂无标签',
   noPosts: '这个人真懒，一个文章也没写',
