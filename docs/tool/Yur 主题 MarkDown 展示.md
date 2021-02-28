@@ -109,14 +109,6 @@ console.log('Yur');
 - ***斜体加粗***
 - ~~删除线~~
 
-## 小图标
-
-<Icon name="github" />
-
-<Icon name="man" color="#39c5bb" />
-
-<Icon name="woman" size="2em" />
-
 ## 数学公式
 
 $\sqrt{3x-1}+(1+x)^2$

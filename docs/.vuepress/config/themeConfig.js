@@ -6,8 +6,16 @@ module.exports = {
   },
   navs: [
     {
-      text: '编程技术',
-      link: '/program/',
+      text: '人工智能',
+      link: '/ai/',
+    },
+    {
+      text: '前端',
+      link: '/front-end/',
+    },
+    {
+      text: '后端',
+      link: '/back-end/',
     },
     {
       text: '生活兴趣',
