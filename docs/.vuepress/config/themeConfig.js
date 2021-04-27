@@ -14,8 +14,8 @@ module.exports = {
       link: '/front-end/',
     },
     {
-      text: '后端',
-      link: '/back-end/',
+      text: '编程',
+      link: '/code/',
     },
     {
       text: '生活兴趣',
